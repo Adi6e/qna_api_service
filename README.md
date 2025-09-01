@@ -118,7 +118,7 @@ http://localhost:8000/docs
 Запуск тестов:
 
 ```bash
-docker-compose exec app pytest --maxfail=1 --disable-warnings -q
+docker-compose run web pytest -v
 ```
 
 > В тестах используется либо локальная PostgreSQL, либо SQLite in-memory для быстрого выполнения.
@@ -127,16 +127,9 @@ docker-compose exec app pytest --maxfail=1 --disable-warnings -q
 
 ## 🔧 Миграции
 
-Создание миграций:
+Создание миграций (создать папку migrations в корне проекта):
 
 ```bash
 docker-compose exec app alembic revision --autogenerate -m "Initial migration"
 docker-compose exec app alembic upgrade head
 ```
-
----
-
-## 📖 Лицензия
-
-MIT License © 2025 <Твоё имя>
-
